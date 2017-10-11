@@ -1,0 +1,3 @@
+#!/bin/bash
+chown -R 102:105 /var/lib/mysql
+exec /usr/bin/entry.org "$@"
