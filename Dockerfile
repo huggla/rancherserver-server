@@ -1,9 +1,8 @@
 FROM rancher/server:v1.6.10
 
-RUN service mysql stop && rm -rf /var/lib/mysql/*
+RUN service mysql stop \
+  && rm -rf /var/lib/mysql/* \
+  && mv /usr/bin/entry /usr/bin/entry.org
 
 COPY ./initdb /var/lib/mysql
-
-RUN chown -R 102:105 /var/lib/mysql && service mysql start
-
-VOLUME /var/lib/mysql
+COPY ./entry /usr/bin/entry
