@@ -6,3 +6,5 @@ RUN service mysql stop \
 
 COPY ./initdb /var/lib/mysql
 COPY ./entry /usr/bin/entry
+
+RUN chmod ugo+x /usr/bin/entry
